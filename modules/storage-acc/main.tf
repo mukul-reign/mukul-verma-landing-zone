@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "storage" {
-  name                     = "mukstgscc999"
+  name                     = "mukstgscc01"
   resource_group_name      = "Mukul_Verma_RG"
   location                 = "East US"
   account_tier             = "Standard"

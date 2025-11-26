@@ -1,5 +1,5 @@
 resource "azurerm_log_analytics_workspace" "law" {
-  name                = "muklaw999"
+  name                = "muklaw01"
   location            = "East US"
   resource_group_name = "Mukul_Verma_RG"
   sku                 = "PerGB2018"
