@@ -52,9 +52,11 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Terraform Init
+        run: terraform init
+
       - name: Terraform Apply Storage
-        run: |
-          terraform apply -auto-approve -target=module.storage
+        run: terraform apply -auto-approve -target=module.storage
 
   deploy-loganalytics:
     name: Deploy Log Analytics
@@ -74,9 +76,11 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Terraform Init
+        run: terraform init
+
       - name: Terraform Apply Log Analytics
-        run: |
-          terraform apply -auto-approve -target=module.loganalytics
+        run: terraform apply -auto-approve -target=module.loganalytics
 
   deploy-uami:
     name: Deploy UAMI
@@ -96,6 +100,8 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
+      - name: Terraform Init
+        run: terraform init
+
       - name: Terraform Apply UAMI
-        run: |
-          terraform apply -auto-approve -target=module.uami
+        run: terraform apply -auto-approve -target=module.uami
