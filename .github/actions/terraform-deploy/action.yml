@@ -1,0 +1,23 @@
+
+name: "Terraform Deploy"
+description: "Generic action to init, plan, and apply Terraform for a specific module"
+inputs:
+  module_target:
+    description: "Terraform module target (e.g., module.storage)"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.6.0
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Plan
+      run: terraform plan -target=${{ inputs.module_target }} -out=tfplan
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve tfplan
