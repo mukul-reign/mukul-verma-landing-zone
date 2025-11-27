@@ -15,9 +15,12 @@ runs:
 
     - name: Terraform Init
       run: terraform init
+      shell: bash
 
     - name: Terraform Plan
       run: terraform plan -target=${{ inputs.module_target }} -out=tfplan
+      shell: bash
 
     - name: Terraform Apply
       run: terraform apply -auto-approve tfplan
+      shell: bash
